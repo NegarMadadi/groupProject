@@ -12,11 +12,4 @@ public class PersonSequencer {
    public static void reset(){
        personId = 0;
    }
-
-
-
-
-
-
-
 }
