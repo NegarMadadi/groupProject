@@ -17,7 +17,7 @@ public class ToDoItems {
         return todoList;
     }
 
-    public Todo findById(int todoId) {
+    public Todo findByIdTodo(int todoId) {
         int index = -1;
         for (int i = 0; i < size(); i++) {
             if (todoList[i].getTodoId() == todoId) {
@@ -30,13 +30,15 @@ public class ToDoItems {
         return todoList[index];
     }
 
-
-    public void clear(){
-        todoList = new Todo[0];
+    public Todo addTodoList(String description) {
+        Todo[] newTodo = Arrays.copyOf(todoList, todoList.length + 1);
+        Todo task = new Todo(TodoSequencer.nextToDoPersonId(), description);
+        newTodo[newTodo.length - 1] = task;
+        todoList = newTodo;
+        return task;
     }
 
-
-
-    //___10a_________________________________________________
-
+    public void clear() {
+        todoList = new Todo[0];
+    }
 }
