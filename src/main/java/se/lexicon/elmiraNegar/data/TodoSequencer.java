@@ -1,4 +1,4 @@
-package data;
+package se.lexicon.elmiraNegar.data;
 
 public class TodoSequencer {
     private static int toDoPersonId;

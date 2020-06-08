@@ -1,10 +1,9 @@
-package data;
+package se.lexicon.elmiraNegar.data;
 
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import se.lexicon.elmiraNegar.model.Person;
+import se.lexicon.elmiraNegar.data.PersonSequencer;
 
 import static org.junit.Assert.assertEquals;
 
