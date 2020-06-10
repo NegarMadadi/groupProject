@@ -22,4 +22,20 @@ public class Todo {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public boolean getDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
+    }
+
+    public Person getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Person assignee) {
+        this.assignee = assignee;
+    }
 }

@@ -66,4 +66,13 @@ public class PeopleTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void remove_Person_test() {
+        int expected = 0;
+        people.removePersonFromPeopleArray(1);
+
+        Assert.assertEquals(expected, people.size());
+        Assert.assertNull(people.findById(2));
+    }
 }

@@ -76,5 +76,66 @@ public class ToDoItemsTest {
         Assert.assertNull(toDoItems.findByIdTodo(-1));
     }
 
+    //10.a--------
+    @Test
+    public void find_By_Done_Status_test(){
 
+      todo.setDone(true);
+      Todo object = toDoItems.addTodoList("write a list");
+      object.setDone(true);
+
+        Todo[] expected = new Todo[2];
+        expected[0] = todo;
+        expected[1] = object;
+        Todo[] temp = toDoItems.findByDoneStatus(true);
+        Assert.assertArrayEquals(expected, temp);
+    }
+    //10.b-------------------
+    @Test
+    public void find_By_Assignee_test(){ //searching person by using the id of person
+
+        Person person01 = new Person(PersonSequencer.nextPersonId(), "Negar", "Madadi");
+
+        Todo[] expected = new Todo[1];
+        expected[0] = todo;
+
+        todo.setAssignee(person01);
+        int personId = person01.getPersonId();
+
+        Assert.assertArrayEquals(expected,toDoItems.findByAssignee(personId));
+
+    }
+
+
+    //10.c---------------   //searching person by using the a person(entire person()id, name, familyName)
+    @Test
+    public void find_By_Assignee_Person_test(){
+        Person person = new Person(PersonSequencer.nextPersonId(), "Negar", "Madadi");
+        todo.setAssignee(person);
+
+        Todo[] expected = new Todo[1];
+        expected[0] = todo;
+
+        Assert.assertArrayEquals(expected, toDoItems.findByAssignee(person));
+
+    }
+
+    //10.d----------------
+    @Test
+    public void find_Unassigned_TodoItems(){  //no person assigned to it
+        Todo[] expected = new Todo[1];
+        expected[0] = todo;
+
+        Assert.assertArrayEquals(expected, toDoItems.findUnassignedTodoItems());
+    }
+
+    //11.a-------
+    @Test
+    public void remove_object_from_todo_array() {
+        int expected = 0;
+        toDoItems.removeObjectFromTodoArray(1);
+
+        Assert.assertEquals(expected, toDoItems.size());
+        Assert.assertNull(toDoItems.findByIdTodo(2));
+    }
 }

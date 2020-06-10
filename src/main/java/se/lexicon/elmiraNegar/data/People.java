@@ -65,4 +65,20 @@ public class People {
     public void clear(){
         person = new Person[0];
     }
+
+    //11.a------Functionality to remove objects from array.(not nulling)
+    //First: you need to find the correct array index of object
+    //Second: You need to rebuild array by executing the object on found index
+    //Find the person Id ade remove it from array, array will be shorten
+    public void removePersonFromPeopleArray(int personId){
+        int index = 0;
+        for(int i = 0; i < person.length; i++){
+            if(person[i].getPersonId() == personId){
+                person = Arrays.copyOf(person, person.length-1);
+            }else if (person[i].getPersonId() != personId){
+             person[index] = person[i];
+             index++;
+            }
+        }
+    }
 }
